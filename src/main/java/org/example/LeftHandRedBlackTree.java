@@ -1,6 +1,6 @@
 package org.example;
 
-public class RedBlackTree{
+public class LeftHandRedBlackTree {
     private class Node {
         private int value;
         private Color color;
@@ -112,6 +112,24 @@ public class RedBlackTree{
         node.rightChild.color = Color.BLACK;
         node.leftChild.color = Color.BLACK;
         node.color = Color.RED;
+    }
+
+    public void print(){
+        print(root);
+    }
+    private void print(Node node){
+        if (node == null){
+            return;
+        }
+        System.out.println(node.value);
+        if (node.leftChild != null){
+            System.out.println("L:" + node.leftChild.value + "(" + node.leftChild.color + ")");
+        }
+        if (node.rightChild != null){
+            System.out.println("R:" + node.rightChild.value + "(" + node.rightChild.color + ")");
+        }
+        print(node.leftChild);
+        print(node.rightChild);
     }
 }
 
